@@ -3,6 +3,7 @@ import { Params, ActivatedRoute, Router } from '@angular/router';
 import { Personajes } from 'src/app/models/Personajes';
 import { Series } from 'src/app/models/Series';
 import { SeriesService } from 'src/app/services/series.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-createseries',
@@ -24,7 +25,7 @@ export class CreateseriesComponent implements OnInit {
     private _service: SeriesService,
     private _router: Router,
     private _activeRoute: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.loadSeries();
@@ -36,19 +37,52 @@ export class CreateseriesComponent implements OnInit {
     //var id_serie = parseInt(this.idSerieRef.nativeElement.value);
     var id_serie = parseInt(this.selectRef.nativeElement.value);
     console.log(id_serie);
-    
+
     var nombre = this.nombreRef.nativeElement.value;
     var imagen = this.imagenRef.nativeElement.value;
     var newSerie = new Personajes(0, nombre, imagen, id_serie);
-    console.log(newSerie);
-    console.log(id_serie);
-    if (newSerie != null) {
-      this._service.postPersonaje(newSerie).subscribe((response) => {
-        console.log('se creo el personaje', response);        
-        this._router.navigate(['/personajes', id_serie]);
+    // Validaciones
+    if (!nombre || !imagen) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Oops...',
+        text: 'Algún campo debe estar incompleto',
+        showConfirmButton: false,
+        timer: 2000
       });
+      return;
+    }
+
+    if (newSerie) {
+      console.log(newSerie);
+      console.log(id_serie);
+  
+      this._service.postPersonaje(newSerie).subscribe(
+        (response) => {
+          console.log('Se creó el personaje', response);
+          Swal.fire({
+            icon: 'success',
+            title: 'Creado con éxito',
+            text: `${nombre} fue creado con éxito`,
+            showConfirmButton: false,
+            timer: 2000
+          });
+          this._router.navigate(['/personajes', id_serie]);
+        },
+        (error) => {
+          console.log('No se pudo crear el personaje', error);
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Algo salió mal',
+            showConfirmButton: false,
+            timer: 2000
+          });
+        }
+      );
     } else {
       console.log('No se pudo crear');
+      Swal.fire('Error', 'Error al crear el personaje.', 'error');
     }
   }
 
