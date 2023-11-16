@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="card text-center mt-3" *ngIf="serie">
+        <div class="card-header bg-dark text-white">
+            {{serie.nombre}}
+        </div>
+        <div class="card-body">
+            <img src="{{serie.imagen}}" class="card-img-top mx-auto d-block"
+                style="max-width: 40%; height: auto;">
+            <br>
+            <h5 class="card-title">Puntuación: {{ serie.puntuacion }}</h5>
+            <h5 class="card-title">Año: {{ serie.anyo }}</h5>
+        </div>
+        <div class="card-footer text-muted">
+            <a [routerLink]="['/']" class="btn btn-primary col-md-6">Volver</a>
+            <a [routerLink]="['/personajes', serie.idSerie]" class="btn btn-success col-md-6">Personajes</a>
+        </div>
+    </div>
+</div>
