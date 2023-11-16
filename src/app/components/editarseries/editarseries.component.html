@@ -1,1 +1,16 @@
-<p>editarseries works!</p>
+<div class="container">
+    <form #insertForm="ngForm" class="form-group">
+
+        <select class="form-select" #selectserie name="selectserie">
+            <option *ngFor="let serie of series" value="{{serie.idSerie}}">{{serie.nombre}}</option>
+        </select>
+        <br>
+        <select class="form-select" #selectpersonaje name="selectpersonaje" >
+            <option *ngFor="let personaje of personajes" value="{{personaje.idPersonaje}}">{{personaje.nombre}}</option>
+        </select>
+        <br>
+
+        <button (click)="putSerie()" class="btn btn-success">Actualizar</button><br />
+    </form>
+
+</div>

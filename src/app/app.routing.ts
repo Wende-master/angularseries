@@ -5,6 +5,7 @@ import { EditarseriesComponent } from "./components/editarseries/editarseries.co
 import { DetallesseriesComponent } from "./components/detallesseries/detallesseries.component";
 import { PersonajesComponent } from "./components/personajes/personajes.component";
 import { CreateseriesComponent } from "./components/createseries/createseries.component";
+import { DetallespersonajeComponent } from "./components/detallespersonaje/detallespersonaje.component";
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent }, //No llevan barra    
@@ -12,7 +13,7 @@ const appRoutes: Routes = [
     { path: 'editar', component: EditarseriesComponent },
     { path: 'detalleserie/:id', component: DetallesseriesComponent },
     { path: 'personajes/:idserie', component: PersonajesComponent },
-    //{ path: 'editar/:id/:nombre/:localidad', component: EditarseriesComponent },
+    { path: 'detallespersonaje/:idpersonaje', component: DetallespersonajeComponent },
 
     
 

@@ -1,19 +1,16 @@
 <div class="container">
-    <form #insertForm="ngForm"  class="form-group">
-        <!-- <label >Id</label>
-        <input type="number" #id name="id"  class="form-control"/><br/>
-        <label >Nombre</label>
-        <input type="text" #nombre name="nombre"   class="form-control"/><br/>
-        <label >Localidad</label>
-        <input type="text" #localidad name="localidad"   class="form-control"/><br/> -->
-        
-        <select  *ngFor="let personaje of personajes">
-            <option value="{{personaje.idPersonaje}}">{{personaje.nombre}}</option>
-        </select>
-        <!-- <select  *ngFor="let personaje of personajes">
-            <option value="{{personaje.idPersonaje}}">{{personaje.nombre}}</option>
-        </select> -->
+    <form #insertForm="ngForm" class="form-group">
+        <label class="form-label">Nombre</label>
+        <input type="text" #nombre name="nombre" class="form-control" /><br />
 
-        <button (click) = "createPersonaje()" class="btn btn-success">Insertar</button><br/>
+        <label class="form-label">Imagen</label>
+        <input type="text" #imagen name="imagen" class="form-control" /><br />
+        <br>
+        <select class="form-select" #selectserie name="selectserie">
+            <option *ngFor="let serie of series" value="{{serie.idSerie}}">{{serie.nombre}}</option>
+        </select>
+        <br>
+        
+        <button (click)="createPersonaje()" class="btn btn-success">Insertar</button><br />
     </form>
 </div>

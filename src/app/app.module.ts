@@ -10,6 +10,9 @@ import { MenuComponent } from './components/menu/menu.component';
 import { FormsModule } from '@angular/forms';
 import { appRoutingProvider, routing } from './app.routing';
 import { SeriesService } from './services/series.service';
+import { CreateseriesComponent } from './components/createseries/createseries.component';
+import { EditarseriesComponent } from './components/editarseries/editarseries.component';
+import { DetallespersonajeComponent } from './components/detallespersonaje/detallespersonaje.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { SeriesService } from './services/series.service';
     PersonajesComponent,
     DetallesseriesComponent,
     HomeComponent,
-    MenuComponent
+    CreateseriesComponent,
+    EditarseriesComponent,
+    MenuComponent,
+    DetallespersonajeComponent
   ],
   imports: [
     BrowserModule,
