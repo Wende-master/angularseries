@@ -6,11 +6,13 @@ import { DetallesseriesComponent } from "./components/detallesseries/detallesser
 import { PersonajesComponent } from "./components/personajes/personajes.component";
 import { CreateseriesComponent } from "./components/createseries/createseries.component";
 import { DetallespersonajeComponent } from "./components/detallespersonaje/detallespersonaje.component";
+import { SecurityComponent } from "./components/security/security.component";
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent }, //No llevan barra    
     { path: 'insertar', component: CreateseriesComponent },
     { path: 'editar', component: EditarseriesComponent },
+    { path: 'login', component: SecurityComponent },
     { path: 'detalleserie/:id', component: DetallesseriesComponent },
     { path: 'personajes/:idserie', component: PersonajesComponent },
     { path: 'detallespersonaje/:idpersonaje', component: DetallespersonajeComponent },

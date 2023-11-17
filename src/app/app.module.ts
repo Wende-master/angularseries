@@ -13,6 +13,7 @@ import { SeriesService } from './services/series.service';
 import { CreateseriesComponent } from './components/createseries/createseries.component';
 import { EditarseriesComponent } from './components/editarseries/editarseries.component';
 import { DetallespersonajeComponent } from './components/detallespersonaje/detallespersonaje.component';
+import { SecurityComponent } from './components/security/security.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { DetallespersonajeComponent } from './components/detallespersonaje/detal
     CreateseriesComponent,
     EditarseriesComponent,
     MenuComponent,
-    DetallespersonajeComponent
+    DetallespersonajeComponent,
+    SecurityComponent
   ],
   imports: [
     BrowserModule,

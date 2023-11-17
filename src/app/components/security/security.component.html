@@ -1,0 +1,36 @@
+
+<div class="container">
+    <form #loginForm="ngForm" class="form-group">
+        <label class="form-label">Usuario</label>
+        <input type="text" #userName name="userName" class="form-control" /><br />
+        
+        <label class="form-label">Contraseña</label>
+        <input type="text" #password name="password" class="form-control" /><br />
+  
+        <button (click)="login()" class="btn btn-success ">Login</button><br />
+    </form>
+    <br>
+<div *ngIf="empleados">
+    <table>
+        <thead>
+            <tr>
+                <th>idEmpleado</th>
+                <th>Apellido</th>
+                <th>Oficio</th>
+                <th>Salario</th>
+                <th>Director</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let empleado of empleados">
+                <td>{{empleado.idEmpleado}}</td>
+                <td>{{empleado.apellido}}</td>
+                <td>{{empleado.oficio}}</td>
+                <td>{{empleado.salario}}</td>
+                <td>{{empleado.director}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</div>
