@@ -27,11 +27,10 @@ export class SecurityComponent implements OnInit {
     console.log(usuario);
 
     this._srvice.loginEmpleados(usuario).subscribe(response => {
-      console.log(response);
+
       if (response) {
-        this._srvice.authEmpleado(response).subscribe(result => {
+        this._srvice.authEmpleado(response.response).subscribe(result => {
           this.empleados = result;
-          console.log(result.data);
 
         })
       }else{

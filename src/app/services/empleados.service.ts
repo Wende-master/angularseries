@@ -25,8 +25,9 @@ export class EmpleadosService {
 
   authEmpleado(token: string): Observable<any> {
     var request = "api/empleados";
-    var headers = new HttpHeaders({ 'Authorization': 'Bearer ' + token })
-    var url = environment.urlEmpleados + request;
+    var url = environment.urlEmpleados + request;    
+    var headers = new HttpHeaders({ 'Authorization': 'Bearer ' + token });
+    console.log("Bearer "+ token);
 
     return this._http.get(url, { headers });
   }
